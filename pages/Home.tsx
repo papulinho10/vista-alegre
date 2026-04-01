@@ -93,7 +93,7 @@ const Home: React.FC = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar o modal
-  const GOOGLE_REVIEWS_URL = "https://www.google.com/search?q=vin%C3%ADcola+vista+alegre+gramado&sca_esv=83277d8885f8cf32&rlz=1C1ONGR_enBR1153BR1153&biw=1536&bih=703&aic=0&sxsrf=ANbL-n4WS62gFLIC89sm6eTiVxjx79nOyQ%3A1769803148963&ei=jA19adjDOva91sQPoZu9mQc&oq=vin%C3%ADcola+em+gramado+-+vista+alegre+avalia%C3%A7%C3%B5es&gs_lp=Egxnd3Mtd2l6LXNlcnAiMHZpbsOtY29sYSBlbSBncmFtYWRvIC0gdmlzdGEgYWxlZ3JlIGF2YWxpYcOnw7VlcyoCCAAyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEcyChAAGLADGNYEGEdI6iJQAFgAcAF4AZABAJgBAKABAKoBALgBAcgBAJgCAaACCZgDAIgGAZAGCJIHATGgBwCyBwC4BwDCBwMyLTHIBwaACAA&sclient=gws-wiz-serp";
+  const GOOGLE_REVIEWS_URL = "https://g.page/r/CSAxSwBBxwduEAE/review";
 
   useEffect(() => {
     if (location.state && (location.state as any).targetId) {
@@ -207,6 +207,36 @@ const Home: React.FC = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-wine/5 blur-[100px] rounded-full pointer-events-none" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8">
+          {/* Bloco de Avaliação para visitantes */}
+          <div className="bg-wine-dark/30 backdrop-blur-sm border border-gold/20 rounded-[2rem] p-8 md:p-10 mb-16 shadow-2xl relative overflow-hidden group">
+             <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+             <div className="relative z-10 flex flex-col items-center space-y-4">
+                <h3 className="font-serif text-2xl md:text-3xl text-ivory">Já nos visitou?</h3>
+                <p className="text-ivory/70 font-light text-sm md:text-base max-w-lg mx-auto">
+                  Sua opinião é muito importante para nós! Deixe seu feedback e nos ajude a continuar oferecendo a melhor experiência na Serra Gaúcha.
+                </p>
+                <div className="pt-4">
+                   <button
+                     onClick={() => window.open(GOOGLE_REVIEWS_URL, '_blank')}
+                     className="text-xs md:text-sm font-bold uppercase tracking-widest text-gold hover:text-white border border-gold/30 hover:border-white/50 px-8 py-4 rounded-full transition-all flex items-center gap-3 hover:bg-white/5 group/btn bg-black/20"
+                   >
+                      <div className="w-5 h-5 relative flex items-center justify-center">
+                         <svg className="w-full h-full" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.84z" fill="#FBBC05" />
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+                         </svg>
+                      </div>
+                      NOS AVALIE NO GOOGLE
+                      <svg className="w-4 h-4 text-gold/50 group-hover/btn:text-white group-hover/btn:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                   </button>
+                </div>
+             </div>
+          </div>
+
           <span className="text-gold font-bold uppercase tracking-[0.4em] text-[10px] animate-pulse">
              Convite Especial
           </span>
